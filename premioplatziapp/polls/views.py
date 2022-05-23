@@ -34,12 +34,12 @@ from .models import Question, Choice
 
 # ########################## vistas basadas en clases ########################
 class IndexView(generic.ListView):
-    templete_name = 'polls/index.html'
+    template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
         """Return the last five published questions."""
-        return Question.objects.order_by('-pub_date')[:5] # desde las mas recientes a las mas antiguas
+        return Question.objects.order_by('-pub_date')[:5] # ordenadas desde la mas reciente a las más antigua
 
 class DetailView(generic.DetailView):
     model = Question
